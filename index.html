@@ -8,8 +8,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Jarvis">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="theme-color" content="#f2f3fa" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0c1020" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f3f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta name="format-detection" content="telephone=no">
 <link rel="apple-touch-icon" href="icon.png">
 <link rel="icon" href="icon.png">
@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* Jarvis : une orbe ambre sur fond bleu nuit, des pistes de couleur (corail, violet, turquoise, bleu), des cartes très arrondies et une barre d'onglets façon iOS. */
+/* Jarvis : thème noir et blanc, orbe argentée, cartes très arrondies et barre d'onglets façon iOS. */
 :root {
   --bg: #f2f3fa;
   --surface: #ffffff;
@@ -309,6 +309,40 @@ table.dp .r { text-align: right; white-space: nowrap; }
   @page { margin: 16mm; }
 }
 
+.tile-link { text-align: left; color: inherit; font: inherit; border: 1px solid var(--line); gap: 4px; }
+.tile-link b { font: 700 17px/1.2 var(--display); }
+.idee { display: grid; gap: 10px; padding: 14px; border-radius: 18px; background: var(--surface-2); }
+.idee .dec { font: 800 22px/1.1 var(--display); }
+.idee ul { margin: 0; padding-left: 18px; }
+.fk-ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; line-height: 1.45; }
+.msg-txt { white-space: pre-wrap; font-size: 14.5px; line-height: 1.45; background: var(--surface-2); border-radius: 14px; padding: 10px 12px; }
+.team { width: 100%; display: grid; gap: 8px; text-align: left; }
+.team-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.agent { position: relative; display: grid; justify-items: center; gap: 4px; padding: 14px 6px 12px; border-radius: 20px; border: 1px solid var(--line); background: var(--surface); color: inherit; font: inherit; box-shadow: var(--shadow); }
+.agent b { font: 700 16px/1.1 var(--display); }
+.agent span:not(.avatar) { font-size: 12px; color: var(--muted); line-height: 1.2; }
+.agent .badge { position: absolute; top: 8px; right: 10px; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 10px; background: var(--bad); color: #fff; font: 700 12px/20px var(--body); font-style: normal; }
+.avatar { width: var(--as); height: var(--as); border-radius: 50%; display: grid; place-items: center; flex: none; color: #fff; font: 800 calc(var(--as) * .42)/1 var(--display); background: radial-gradient(circle at 32% 28%, rgb(255 255 255 / .55), rgb(var(--ac)) 46%, rgb(var(--ac) / .85)); box-shadow: 0 6px 18px rgb(var(--ac) / .4); }
+.ag-head { display: flex; align-items: center; gap: 14px; margin: 4px 0 14px; }
+.ag-body { display: grid; gap: 12px; }
+.ag-line { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 0; border-top: 1px solid var(--line); }
+.ag-line:first-of-type { border-top: 0; }
+.ag-line > div:first-child { min-width: 0; overflow-wrap: anywhere; }
+.tm-top { display: grid; grid-template-columns: 1fr auto auto; gap: 14px; align-items: end; }
+.tm-kpi { display: grid; text-align: right; } .tm-kpi b { font: 800 22px/1 var(--display); } .tm-kpi span { font-size: 12px; color: var(--muted); }
+.tm-statut { font-size: 13px; font-weight: 600; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.tm-statut::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
+.tm-statut.on::before { background: var(--good); box-shadow: 0 0 0 4px rgb(34 197 94 / .2); }
+.tm-courbe svg { width: 100%; height: 70px; display: block; }
+.tm-ag.live { outline: 2px solid var(--good); outline-offset: -2px; }
+.tm-badge { flex: none; font: 700 11px/1 var(--body); text-transform: uppercase; letter-spacing: .04em; padding: 5px 8px; border-radius: 8px; background: var(--surface-2); color: var(--muted); align-self: flex-start; }
+.b-actif, .b-enter, .b-pass { background: rgb(34 197 94 / .16); color: var(--good); }
+.b-ok, .b-scan, .b-size { background: rgb(59 130 246 / .14); color: rgb(59 130 246); }
+.b-stop, .b-rejet, .b-erreur { background: rgb(239 68 68 / .14); color: var(--bad); }
+.b-exit, .b-attendre { background: rgb(245 158 11 / .16); color: rgb(217 119 6); }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; overflow-wrap: anywhere; }
+.tm-l { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); }
+.tm-l > div { min-width: 0; }
 /* ---------- Barre d'onglets ---------- */
 .tabbar { flex: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 6px max(8px, env(safe-area-inset-right, 0px)) calc(4px + env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px)); background: var(--bar); -webkit-backdrop-filter: blur(22px) saturate(1.6); backdrop-filter: blur(22px) saturate(1.6); border-top: 1px solid var(--line); }
 .tab { border: 0; background: none; display: grid; justify-items: center; gap: 2px; color: var(--muted); font-size: 11px; font-weight: 700; padding: 2px 0; min-height: 52px; }
@@ -319,6 +353,53 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
 
 #toast { width: max-content; position: fixed; left: 50%; transform: translateX(-50%); top: calc(12px + env(safe-area-inset-top, 0px)); max-width: calc(100% - 32px); padding: 11px 16px; border-radius: 16px; background: var(--ink); color: var(--bg); font-weight: 600; font-size: 14.5px; z-index: 30; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
 #confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 40; }
+/* ===== Thème noir et blanc ===== */
+:root {
+  --bg: #f3f3f3; --surface: #ffffff; --surface-2: #e9e9e9; --line: rgba(0, 0, 0, 0.1);
+  --ink: #0a0a0a; --muted: #686868;
+  --accent: #111111; --accent-2: #000000; --accent-ink: #ffffff; --accent-text: #111111; --accent-soft: rgba(0, 0, 0, 0.08);
+  --good: #0a0a0a; --bad: #0a0a0a; --bar: rgba(255, 255, 255, 0.86);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 10px 28px rgba(0, 0, 0, 0.07);
+  --mono-c: 17 17 17; --mono-ct: 17 17 17;
+  --p-boutique: 40 40 40; --pt-boutique: 17 17 17;
+  --p-contenu: 85 85 85; --pt-contenu: 17 17 17;
+  --p-freelance: 20 20 20; --pt-freelance: 17 17 17;
+  --p-trading: 110 110 110; --pt-trading: 17 17 17;
+  --p-autre: 150 150 150; --pt-autre: 60 60 60;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000; --surface: #0f0f0f; --surface-2: #1b1b1b; --line: rgba(255, 255, 255, 0.12);
+    --ink: #ffffff; --muted: #9b9b9b;
+    --accent: #ffffff; --accent-2: #d6d6d6; --accent-ink: #000000; --accent-text: #ffffff; --accent-soft: rgba(255, 255, 255, 0.12);
+    --good: #ffffff; --bad: #ffffff; --bar: rgba(8, 8, 8, 0.86);
+    --shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 10px 28px rgba(0, 0, 0, 0.6);
+    --mono-c: 245 245 245; --mono-ct: 245 245 245;
+    --p-boutique: 235 235 235; --pt-boutique: 245 245 245;
+    --p-contenu: 190 190 190; --pt-contenu: 245 245 245;
+    --p-freelance: 255 255 255; --pt-freelance: 245 245 245;
+    --p-trading: 160 160 160; --pt-trading: 245 245 245;
+    --p-autre: 120 120 120; --pt-autre: 200 200 200;
+  }
+}
+.p-accent { --c: var(--mono-c); --ct: var(--mono-ct); }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.orb { background: radial-gradient(circle at 34% 28%, #ffffff 0%, #e8e8e8 25%, #9a9a9a 60%, #3a3a3a 100%) !important; box-shadow: 0 0 calc(var(--s) * 0.45) rgba(255, 255, 255, 0.28), inset 0 -4px 10px rgba(0, 0, 0, 0.35) !important; }
+@media (prefers-color-scheme: light) { .orb { box-shadow: 0 0 calc(var(--s) * 0.4) rgba(0, 0, 0, 0.18), inset 0 -4px 10px rgba(0, 0, 0, 0.35) !important; } }
+.tile .ico, .check[aria-checked="true"] .box { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.avatar { background: radial-gradient(circle at 32% 28%, #ffffff, #b5b5b5 45%, #3a3a3a) !important; color: #000 !important; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35) !important; text-shadow: 0 1px 0 rgba(255, 255, 255, .6); }
+.agent .badge { background: var(--ink); color: var(--bg); }
+.btn.danger { background: var(--surface-2); color: var(--ink); }
+.res-box.good, .res-box.bad { background: var(--surface-2); }
+.tm-statut.on::before { background: var(--ink); box-shadow: 0 0 0 4px var(--accent-soft); }
+.b-actif, .b-enter, .b-pass { background: var(--ink); color: var(--bg); }
+.b-ok, .b-scan, .b-size { background: var(--surface-2); color: var(--ink); }
+.b-stop, .b-rejet, .b-erreur { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+.b-exit, .b-attendre { background: transparent; color: var(--muted); box-shadow: inset 0 0 0 1.5px var(--muted); }
+.tm-ag.live { outline-color: var(--ink); }
+.amount.neg, .neg { opacity: 0.75; }
+#grad stop, #grad2 stop { stop-color: var(--ink); }
+#grad stop:last-child, #grad2 stop:last-child { stop-color: var(--muted); }
 </style>
 </head>
 <body>
@@ -415,6 +496,7 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
       <a class="btn soft" id="tv-open" href="https://www.tradingview.com/" target="_blank" rel="noopener" style="display:grid;place-items:center;text-decoration:none">Ouvrir dans TradingView</a>
       <div class="note" id="tv-note" hidden>Les graphiques viennent de TradingView. Ils s'affichent quand tu es connecté à internet.</div>
     </div>
+    <button class="card tile-link" id="go-entrainement" type="button"><b>Entraînement avec Grok</b><span class="small muted">Teste des idées de trade avec de l'argent virtuel, sur les vrais prix.</span></button>
     <form class="card form" id="form-trade" autocomplete="off">
       <h2>Journal de trading</h2>
       <div class="row">
@@ -427,7 +509,7 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
       </div>
       <input class="input" id="tr-note" type="text" placeholder="Ce que tu retiens de ce trade" maxlength="160" aria-label="Note">
       <button class="btn" type="submit">Ajouter au journal</button>
-      <div class="small muted">Utilise un signe moins pour une perte. Jarvis n'envoie aucun signal d'achat ou de vente : le journal sert à voir ce qui marche vraiment pour toi.</div>
+      <div class="small muted">Utilise un signe moins pour une perte. Note ici tes vrais trades. Les idées de Grok se testent d'abord dans Entraînement, avec de l'argent virtuel.</div>
     </form>
     <div id="trade-sum" hidden class="card"><div class="sec">Total du journal</div><div class="pnl" id="pnl">0 €</div><div class="small muted" id="pnl-sub"></div></div>
     <ul class="list" id="trade-list"></ul>
@@ -677,6 +759,130 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
       <div class="small muted" id="fo-info" style="text-align:center"></div>
     </div>
   </section>
+  <section class="view" id="v-entrainement" aria-label="Trading d'entraînement" hidden>
+    <button class="back" type="button" data-back>‹ Plus</button>
+    <h1 class="title">Entraînement</h1>
+    <div class="note">Argent virtuel uniquement. Aucun ordre n'est passé chez un courtier : on teste les idées de Grok sur les vrais prix, sans risquer un euro. Pour l'instant : cryptos, avec prix en direct.</div>
+    <button class="card tile-link" id="go-terminal" type="button"><b>Terminal agents</b><span class="small muted">Laisse 6 agents scanner, filtrer, analyser et trader pour toi, en argent virtuel.</span></button>
+    <div class="card">
+      <div class="sec">Portefeuille virtuel</div>
+      <div class="pnl" id="en-valeur">1 000 $</div>
+      <div class="small muted" id="en-sous"></div>
+      <div class="stats" id="en-stats"></div>
+      <button class="btn soft" id="en-maj" type="button">Actualiser les prix</button>
+      <div class="small muted" id="en-maj-info"></div>
+    </div>
+    <div class="card form">
+      <h2>Idée de trade avec Grok</h2>
+      <select class="input" id="en-actif" aria-label="Crypto à analyser"></select>
+      <input class="input" id="en-mise" type="text" inputmode="decimal" placeholder="Mise virtuelle par trade ($)" aria-label="Mise virtuelle par trade, en dollars">
+      <div class="row"><button class="btn grow" id="en-go" type="button">Analyser avec Grok</button><button class="btn soft" id="en-stop" type="button" hidden>Arrêter</button></div>
+      <div id="en-idee" hidden></div>
+      <details>
+        <summary>Trade à la main</summary>
+        <div class="form" style="margin-top:10px">
+          <div class="seg" role="group" aria-label="Sens du trade">
+            <button type="button" id="en-m-buy" aria-pressed="true">Achat</button>
+            <button type="button" id="en-m-sell" aria-pressed="false">Vente</button>
+          </div>
+          <div class="row">
+            <input class="input" id="en-m-stop" type="text" inputmode="decimal" placeholder="Stop ($)" aria-label="Prix du stop, en dollars">
+            <input class="input" id="en-m-obj" type="text" inputmode="decimal" placeholder="Objectif ($)" aria-label="Prix objectif, en dollars">
+          </div>
+          <button class="btn soft" id="en-m-go" type="button">Ouvrir au prix actuel</button>
+          <div class="small muted">Compare tes idées à celles de Grok : les statistiques sont séparées.</div>
+        </div>
+      </details>
+    </div>
+    <div class="card form" id="re-card">
+      <h2>Trading réel assisté</h2>
+      <div class="small muted">Jarvis ne passe aucun ordre. Il calcule la mise pour que tu ne risques qu'un petit pourcentage de ton argent. C'est toi qui passes l'ordre dans ton appli, avec le stop.</div>
+      <div class="row">
+        <input class="input" id="re-capital" type="text" inputmode="decimal" placeholder="Ton capital réel (€)" aria-label="Ton capital réel en euros">
+        <select class="input" id="re-risque" aria-label="Risque par trade"><option value="0.5">Risque 0,5 %</option><option value="1">Risque 1 %</option><option value="2">Risque 2 %</option></select>
+      </div>
+      <div class="row">
+        <input class="input" id="re-entree" type="text" inputmode="decimal" placeholder="Prix d'entrée" aria-label="Prix d'entrée">
+        <input class="input" id="re-stop" type="text" inputmode="decimal" placeholder="Prix du stop" aria-label="Prix du stop">
+      </div>
+      <div id="re-res" class="idee" aria-live="polite"></div>
+      <div class="row">
+        <select class="input" id="re-courtier" aria-label="Ton appli de courtier"></select>
+        <a class="btn soft" id="re-ouvrir" href="#" target="_blank" rel="noopener noreferrer" style="display:grid;place-items:center;text-decoration:none">Ouvrir</a>
+      </div>
+      <details>
+        <summary>Les 6 règles de sécurité</summary>
+        <ol class="fk-ul" style="margin-top:8px">
+          <li>Ne risque jamais plus de 1 à 2 % de ton capital sur un trade.</li>
+          <li>Place le stop en même temps que l'achat, et ne le recule jamais.</li>
+          <li>N'utilise que de l'argent que tu peux perdre sans que ça change ta vie.</li>
+          <li>Après 2 pertes dans la journée, arrête jusqu'au lendemain.</li>
+          <li>Pas d'effet de levier ni de produits « futures » : on peut y perdre plus que sa mise.</li>
+          <li>Note chaque vrai trade dans le journal (onglet Marché) pour voir ce qui marche.</li>
+        </ol>
+      </details>
+    </div>
+    <div class="sec">Positions ouvertes</div>
+    <ul class="list" id="en-ouverts"></ul>
+    <div class="sec">Historique</div>
+    <ul class="list" id="en-histo"></ul>
+    <div class="card">
+      <button class="btn danger" id="en-reset" type="button">Recommencer à zéro</button>
+      <div class="small muted">Les prix viennent de Binance. Les clôtures au stop ou à l'objectif sont simulées avec 0,1 % de frais par ordre, sans glissement de prix : en réel, les résultats seraient un peu moins bons.</div>
+    </div>
+  </section>
+  <section class="view" id="v-freelance" aria-label="Kit freelance" hidden>
+    <button class="back" type="button" data-back>‹ Plus</button>
+    <h1 class="title">Kit freelance</h1>
+    <div class="note">Montage vidéo, visuels Canva et réseaux sociaux : les commerces du coin en ont besoin et n'ont pas le temps. Voici tes offres, tes messages et ton plan pour trouver tes premiers clients cette semaine.</div>
+    <div class="card form">
+      <h2>Ton plan de 7 jours</h2>
+      <ol class="steps" id="fk-plan"></ol>
+      <button class="btn" id="fk-plan-go" type="button">Ajouter le plan à mes missions</button>
+    </div>
+    <div class="sec">Tes offres</div>
+    <ul class="list" id="fk-offres"></ul>
+    <div class="small muted" style="padding:0 4px">Prix de départ indicatifs pour débuter. Monte-les dès que tu as 3 ou 4 clients contents.</div>
+    <div class="sec">Messages prêts à envoyer</div>
+    <ul class="list" id="fk-msgs"></ul>
+    <div class="card">
+      <h2>Où trouver des clients</h2>
+      <ul class="fk-ul">
+        <li><b>Commerces de ta ville</b> : restaurants, coiffeurs, salles de sport, boutiques. Cherche-les sur Instagram et Google Maps, regarde ceux qui postent peu.</li>
+        <li><b>Plateformes</b> : Comeup (française), Fiverr, Malt. Crée un profil avec 3 exemples.</li>
+        <li><b>Ton entourage</b> : un proche qui a un commerce, une asso, un club de sport.</li>
+      </ul>
+    </div>
+    <div class="note">Pour encaisser de l'argent régulièrement, il faut être majeur et déclarer une micro-entreprise (c'est gratuit) sur le site officiel formalites.entreprises.gouv.fr. Vérifie les conditions sur ce site. Tes devis et factures se font ensuite dans Plus > Devis et factures.</div>
+  </section>
+  <section class="view" id="v-agent" aria-label="Assistant" hidden>
+    <button class="back" type="button" data-back>‹ Plus</button>
+    <div class="ag-head" id="ag-head"></div>
+    <div class="ag-body" id="ag-body"></div>
+  </section>
+  <section class="view" id="v-terminal" aria-label="Terminal agents" hidden>
+    <button class="back" type="button" data-back>‹ Plus</button>
+    <h1 class="title">Terminal agents</h1>
+    <div class="note">Six agents qui tradent ensemble, en argent virtuel uniquement. Chaque décision est écrite dans le journal avec sa raison. Aucun ordre réel n'est passé.</div>
+    <div class="card tm-head">
+      <div class="tm-top">
+        <div><div class="small muted">Portefeuille virtuel</div><div class="pnl" id="tm-valeur">1 000 $</div></div>
+        <div class="tm-kpi"><b id="tm-mult">1,00×</b><span>multiple</span></div>
+        <div class="tm-kpi"><b id="tm-etape">0/6</b><span>étape</span></div>
+      </div>
+      <div class="tm-statut" id="tm-statut">En veille</div>
+      <div id="tm-courbe"></div>
+      <div class="row">
+        <button class="btn grow" id="tm-go" type="button">Lancer un cycle</button>
+        <button class="btn soft" id="tm-auto" type="button" aria-pressed="false">Auto : off</button>
+      </div>
+      <div class="small muted" id="tm-info">Un cycle = un appel à Grok au maximum. En auto, un cycle toutes les 30 minutes tant que Jarvis est ouvert. Les stops et objectifs sont vérifiés sur l'historique des prix, même quand l'app était fermée.</div>
+    </div>
+    <div class="sec">Les agents</div>
+    <ul class="list" id="tm-agents"></ul>
+    <div class="sec">Journal</div>
+    <ul class="list tm-log" id="tm-log"></ul>
+  </section>
 </main>
 
 <nav class="tabbar" role="tablist" aria-label="Sections" id="tabbar"></nav>
@@ -822,10 +1028,13 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
   const TABS = [["jarvis", "Jarvis"], ["missions", "Missions"], ["argent", "Argent"], ["marche", "Marché"], ["plus", "Plus"]];
   const GROUPES = [
     ["Gagner de l'argent", [
+      ["freelance", "Kit freelance", "Offres et messages clients", "freelance"],
       ["prospects", "Prospects", "Clients à relancer", "freelance"],
       ["devis", "Devis et factures", "PDF en un geste", "trading"],
       ["commandes", "Commandes", "Suivi dropshipping", "boutique"],
       ["contenu", "Contenu", "Calendrier de posts", "contenu"],
+      ["entrainement", "Trading entraînement", "Argent virtuel avec Grok", "trading"],
+      ["terminal", "Terminal agents", "6 agents en argent virtuel", "trading"],
       ["fiche", "Fiche produit", "Écrite depuis une photo", "boutique"],
       ["marge", "Marge boutique", "Calcule avant de vendre", "boutique"]]],
     ["Au quotidien", [
@@ -869,6 +1078,10 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
     if (view === "commandes") renderCommandes();
     if (view === "fiche") renderFiche();
     if (view === "focus") renderFocus();
+    if (view === "freelance") renderFreelance();
+    if (view === "terminal") renderTerminal();
+    if (view === "agent") renderAgent();
+    if (view === "entrainement") { renderEntrainement(); actualiserEntrainement(true); }
   }
   $$("[data-back]").forEach((b) => b.addEventListener("click", () => go("plus")));
 
@@ -882,7 +1095,7 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
     if (reduced()) return;
     const cv = $("#confetti"), ctx = cv.getContext("2d");
     const w = (cv.width = window.innerWidth), hh = (cv.height = window.innerHeight);
-    const cols = ["#ffb020", "#ff7a59", "#a66bff", "#19b6a6", "#3d7bff"];
+    const cols = ["#ffffff", "#000000", "#9a9a9a", "#d0d0d0", "#555555"];
     const ps = Array.from({ length: 46 }, () => ({ x: w / 2 + (Math.random() - 0.5) * 80, y: hh * 0.62, vx: (Math.random() - 0.5) * 9, vy: -6 - Math.random() * 8, r: 3 + Math.random() * 4, c: cols[(Math.random() * cols.length) | 0], a: Math.random() * 6 }));
     let t = 0;
     (function frame() {
@@ -967,7 +1180,7 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
           h("div", { class: "stat" }, h("b", { text: obj > 0 ? Math.round((b.net / obj) * 100) + " %" : "—" }), h("span", { text: "objectif" }))),
         h("div", { class: "xp" },
           h("div", { class: "top" }, h("span", { text: "Niveau " + bilanXP().lv.n + " · " + bilanXP().lv.nom }), h("span", { class: "muted", text: bilanXP().lv.pct + " / 100 XP" })),
-          h("div", { class: "bar" }, h("i", { style: "width:" + bilanXP().lv.pct + "%" }))));
+          h("div", { class: "bar" }, h("i", { style: "width:" + bilanXP().lv.pct + "%" }))), carteEquipe());
       if (!S.reglages.cle) {
         hero.append(h("div", { class: "cta" },
           h("b", { text: "Réveille Jarvis" }),
@@ -1092,7 +1305,8 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
       "Règles :\n" +
       "- Réponses courtes (en général moins de 120 mots), concrètes, avec une prochaine action claire.\n" +
       "- Aucune promesse de gains et aucun chiffre inventé. Un ordre de grandeur est présenté comme une estimation.\n" +
-      "- Trading : tu ne donnes jamais de signal d'achat ou de vente ni de prévision de cours. Tu expliques les concepts, aides à tenir le journal, à analyser ses propres trades et rappelles la gestion du risque quand c'est utile.\n" +
+      "- Trading : tu ne promets jamais de gain et tu ne passes aucun ordre. Pour une idée de trade sur une crypto, utilise l'outil analyser_trade (elle s'ouvre dans Entraînement, en argent virtuel). Pour savoir combien miser en vrai, utilise calculer_mise : jamais plus de 1 à 2 % du capital en risque, toujours un stop. C'est l'utilisateur qui passe ses vrais ordres dans son appli. Pas d'effet de levier.\n" +
+      "- Freelance : il propose montage vidéo, visuels Canva et gestion de réseaux aux commerces locaux. Le Kit freelance (Plus) contient ses offres, ses messages et un plan de 7 jours (outil ajouter_plan_freelance). Aide-le à trouver des clients, rédiger ses messages et fixer ses prix.\n" +
       "- Dropshipping : rappelle quand c'est utile ce qui mange la marge (publicité, frais de paiement, retours) et les délais de livraison longs. En France : statut d'entrepreneur, TVA, mentions légales, droit de rétractation de 14 jours.\n" +
       "- Si l'utilisateur demande d'ajouter une mission, d'enregistrer une entrée ou une sortie d'argent, ou d'afficher un graphique, utilise les outils prévus, puis confirme en une phrase. N'enregistre jamais un montant que l'utilisateur n'a pas donné.\n" +
       "- Réponds en texte simple : listes à tirets si besoin, ** pour l'essentiel, pas de titres.\n\n" +
@@ -1107,7 +1321,10 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
       fn("enregistrer_mouvement", "Enregistre une entrée ou une sortie d'argent à la date d'aujourd'hui. À utiliser seulement quand l'utilisateur donne un montant réel.", { libelle: { type: "string" }, montant: { type: "number", description: "Montant positif en euros" }, type: { type: "string", enum: ["entree", "sortie"] }, piste: { type: "string", enum: pistes } }, ["libelle", "montant", "type"]),
       fn("ouvrir_graphique", "Affiche un graphique TradingView dans l'onglet Marché. Le symbole est au format BOURSE:SYMBOLE, par exemple BITSTAMP:BTCUSD, NASDAQ:AAPL ou FX_IDC:EURUSD.", { symbole: { type: "string" } }, ["symbole"]),
       fn("ajouter_prospect", "Ajoute un client potentiel à la liste de prospects. À utiliser seulement si l'utilisateur le demande.", { nom: { type: "string" }, statut: { type: "string", enum: STATUTS_PR.map((x) => x[0]) }, montant: { type: "number", description: "Montant potentiel en euros, si connu" }, note: { type: "string" } }, ["nom"]),
-      fn("planifier_post", "Planifie une publication dans le calendrier de contenu. La date est au format AAAA-MM-JJ.", { date: { type: "string" }, reseau: { type: "string", enum: RESEAUX }, idee: { type: "string", description: "Idée ou accroche de la publication" } }, ["date", "idee"])
+      fn("planifier_post", "Planifie une publication dans le calendrier de contenu. La date est au format AAAA-MM-JJ.", { date: { type: "string" }, reseau: { type: "string", enum: RESEAUX }, idee: { type: "string", description: "Idée ou accroche de la publication" } }, ["date", "idee"]),
+      fn("analyser_trade", "Lance une analyse de trade par Grok sur une crypto, avec les vrais prix, dans le mode Entraînement (argent virtuel). L'utilisateur voit l'idée et décide.", { actif: { type: "string", enum: CRYPTOS.map((c) => c[0]) } }, ["actif"]),
+      fn("calculer_mise", "Calcule la mise réelle à placer pour respecter le risque choisi par l'utilisateur (capital et pourcentage réglés dans Trading réel assisté).", { entree: { type: "number" }, stop: { type: "number" } }, ["entree", "stop"]),
+      fn("ajouter_plan_freelance", "Ajoute aux missions le plan de 7 jours pour trouver ses premiers clients freelance.", {}, [])
     ];
   }
   function executerOutil(name, args, actions) {
@@ -1141,6 +1358,25 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
       S.prospects.push({ id: uid(), nom, contact: "", montant: isFinite(montant) && montant > 0 ? montant : 0, statut: STATUTS_PR.some((x) => x[0] === args.statut) ? args.statut : "a_contacter", relance: "", note: String(args.note || "").slice(0, 200), dernier: todayStr(), creeLe: new Date().toISOString() });
       save("prospects"); renderProspects(); actions.push("Prospect ajouté : " + nom);
       return "Prospect ajouté.";
+    }
+    if (name === "analyser_trade") {
+      const a = CRYPTOS.some((c) => c[0] === args.actif) ? args.actif : "BTC";
+      S.ent.actif = a; save("ent", "entrainement");
+      setTimeout(() => { go("plus", "entrainement"); $("#en-actif").value = a; analyserAvecGrok(); }, 50);
+      actions.push("Analyse de " + a + " lancée dans Entraînement");
+      return "Analyse lancée dans l'écran Entraînement : l'idée de trade s'affichera là-bas.";
+    }
+    if (name === "calculer_mise") {
+      const r = calcReel(S.reel.capital, S.reel.risque, Number(args.entree), Number(args.stop));
+      if (!S.reel.capital) return "Capital réel non renseigné : demande-lui de le saisir dans Plus > Trading entraînement > Trading réel assisté.";
+      if (!r) return "Erreur : prix invalides.";
+      return "Capital " + S.reel.capital + " €, risque " + S.reel.risque + " % : mise " + r.mise.toFixed(2) + " €, perte max " + r.perte.toFixed(2) + " € si le stop est touché (distance " + (100 * r.ecart).toFixed(1) + " %)" + (r.plafond ? ", mise plafonnée au capital" : "") + ".";
+    }
+    if (name === "ajouter_plan_freelance") {
+      const deja = new Set(S.missions.map((m) => m.titre)); let n = 0;
+      FK_PLAN.forEach((t) => { if (!deja.has(t)) { S.missions.push({ id: uid(), titre: t, piste: "freelance", fait: false, creeLe: new Date().toISOString() }); n++; } });
+      save("missions"); actions.push("Plan freelance ajouté (" + n + " missions)");
+      return n + " missions ajoutées.";
     }
     if (name === "planifier_post") {
       const idee = String(args.idee || "").trim().slice(0, 140);
@@ -1550,7 +1786,7 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
   $("#modele").addEventListener("change", (e) => { S.reglages.modele = e.target.value; save("reglages"); renderReglages(); });
   $("#prenom").addEventListener("input", (e) => { S.reglages.prenom = e.target.value.trim().slice(0, 30); save("reglages"); renderChat(); });
   $("#exp").addEventListener("click", () => {
-    const data = { version: 1, missions: S.missions, revenus: S.revenus, trades: S.trades, objectif: S.reglages.objectif, prenom: S.reglages.prenom, favoris: S.favs, spotify: S.spot, ville: S.ville, marge: S.marge, prospects: S.prospects, documents: S.docs, posts: S.posts, commandes: S.commandes, focus: S.focus, entreprise: S.entreprise };
+    const data = { version: 1, missions: S.missions, revenus: S.revenus, trades: S.trades, objectif: S.reglages.objectif, prenom: S.reglages.prenom, favoris: S.favs, spotify: S.spot, ville: S.ville, marge: S.marge, prospects: S.prospects, documents: S.docs, posts: S.posts, commandes: S.commandes, focus: S.focus, entreprise: S.entreprise, entrainement: S.ent, reel: S.reel };
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
     const a = h("a", { href: URL.createObjectURL(blob), download: "jarvis-sauvegarde-" + todayStr() + ".json" });
     document.body.append(a); a.click(); a.remove();
@@ -1578,6 +1814,8 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
       if (Array.isArray(d.posts)) S.posts = d.posts;
       if (Array.isArray(d.commandes)) S.commandes = d.commandes;
       if (Array.isArray(d.focus)) S.focus = d.focus;
+      if (d.reel && typeof d.reel === "object") { S.reel = Object.assign(S.reel, d.reel); save("reel"); }
+      if (d.entrainement && Array.isArray(d.entrainement.positions)) { S.ent = Object.assign(S.ent, d.entrainement); save("ent", "entrainement"); }
       if (d.entreprise && typeof d.entreprise === "object") S.entreprise = Object.assign(S.entreprise, d.entreprise);
       ["missions", "revenus", "trades", "reglages", "marge", "prospects", "posts", "commandes", "focus", "entreprise"].forEach((k) => save(k));
       store.set("documents", S.docs);
@@ -1589,7 +1827,7 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
   let resetArme = false;
   $("#reset").addEventListener("click", (e) => {
     if (!resetArme) { resetArme = true; e.target.textContent = "Appuie encore pour tout effacer"; setTimeout(() => { resetArme = false; e.target.textContent = "Tout effacer"; }, 3500); return; }
-    ["missions", "revenus", "trades", "reglages", "chat", "favoris", "spotify", "ville", "meteo", "marge", "symbole", "prospects", "documents", "posts", "commandes", "focus", "entreprise", "verrou", "minuteur"].forEach((k) => { try { localStorage.removeItem("jarvis:" + k); } catch (x) {} });
+    ["missions", "revenus", "trades", "reglages", "chat", "favoris", "spotify", "ville", "meteo", "marge", "symbole", "prospects", "documents", "posts", "commandes", "focus", "entreprise", "verrou", "minuteur", "entrainement", "reel"].forEach((k) => { try { localStorage.removeItem("jarvis:" + k); } catch (x) {} });
     location.reload();
   });
 
@@ -1735,7 +1973,7 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
     const fact = S.docs.filter((d) => d.type === "facture" && d.statut === "a_payer");
     const totFact = fact.reduce((a, d) => a + totaux(d.lignes, d.tva).ttc, 0);
     const jour = S.focus.filter((f) => f.date === t);
-    return "Prospects à relancer :\n" + rel + "\nCommandes en cours : " + cmd.length + ". Factures à payer : " + fact.length + (fact.length ? " (" + eur.format(totFact) + ")" : "") + ".\nPublications prévues aujourd'hui :\n" + posts + "\nFocus aujourd'hui : " + jour.length + " session(s), " + Math.round(jour.reduce((a, f) => a + (Number(f.min) || 0), 0)) + " min.";
+    return "Prospects à relancer :\n" + rel + "\nCommandes en cours : " + cmd.length + ". Factures à payer : " + fact.length + (fact.length ? " (" + eur.format(totFact) + ")" : "") + ".\nPublications prévues aujourd'hui :\n" + posts + "\nFocus aujourd'hui : " + jour.length + " session(s), " + Math.round(jour.reduce((a, f) => a + (Number(f.min) || 0), 0)) + " min." + "\n" + contexteEntrainement();
   }
 
   /* =================== Prospects =================== */
@@ -1888,7 +2126,7 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
         const ht = totaux(d.lignes, d.tva).ht;
         if (ht > 0) {
           const r = { id: uid(), libelle: "Facture " + d.numero + " · " + d.client, montant: ht, type: "entree", piste: "freelance", date: todayStr() };
-          S.revenus.push(r); d.revenuId = r.id; save("revenus");
+          S.revenus.push(r); d.revenuId = r.id; d.payeLe = todayStr(); save("revenus");
           confetti(); toast("Facture payée : " + eur.format(ht) + " ajoutés à Argent.");
         }
       } else if (v !== "paye" && avant === "paye" && d.revenuId) {
@@ -2323,6 +2561,599 @@ svg.i { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-widt
     const suite = () => { if (p.q || p.go) appliquerParams(p); };
     if (S.lock && S.lock.h) ouvrirVerrou("verify", false, suite); else suite();
   }
+
+  /* =================== Trading d'entraînement (argent virtuel) =================== */
+  ICONS.entrainement = '<path d="M4 19.5h16"/><path d="M6.5 16l4-5 3 3 4.5-6"/><path d="M15 8h3v3"/>';
+  const CRYPTOS = [["BTC", "Bitcoin"], ["ETH", "Ethereum"], ["SOL", "Solana"], ["BNB", "BNB"], ["XRP", "XRP"], ["ADA", "Cardano"], ["DOGE", "Dogecoin"], ["AVAX", "Avalanche"], ["LINK", "Chainlink"], ["DOT", "Polkadot"]];
+  const FRAIS = 0.001;
+  S.ent = Object.assign({ capital: 1000, mise: 100, actif: "BTC", positions: [] }, store.get("entrainement", {}));
+  if (!Array.isArray(S.ent.positions)) S.ent.positions = [];
+  S.entSens = "achat"; S.entIdee = null;
+  let entCtl = null, entMajEnCours = false, entDernMaj = 0;
+  const nf = (d) => new Intl.NumberFormat("fr-FR", { maximumFractionDigits: d, minimumFractionDigits: Math.min(d, 2) });
+  const usd = (v) => nf(2).format(v) + " $";
+  const usdS = (v) => (v >= 0 ? "+" : "−") + nf(2).format(Math.abs(v)) + " $";
+  const prix = (p) => nf(p >= 100 ? 2 : p >= 1 ? 4 : 6).format(p) + " $";
+
+  async function binance(chemin) {
+    let err = null;
+    for (const base of ["https://api.binance.com", "https://data-api.binance.vision"]) {
+      try { const r = await fetch(base + chemin); if (r.ok) return await r.json(); err = new Error("http " + r.status); } catch (e) { err = e; }
+    }
+    throw err || new Error("binance");
+  }
+  const prixActuel = async (actif) => { const j = await binance("/api/v3/ticker/price?symbol=" + actif + "USDT"); const p = Number(j.price); if (!(p > 0)) throw new Error("prix"); return p; };
+
+  function moyenne(a) { return a.reduce((x, y) => x + y, 0) / (a.length || 1); }
+  function rsi(closes, n) {
+    if (closes.length <= n) return null;
+    let g = 0, l = 0;
+    for (let i = closes.length - n; i < closes.length; i++) { const d = closes[i] - closes[i - 1]; if (d > 0) g += d; else l -= d; }
+    if (l === 0) return 100;
+    return 100 - 100 / (1 + g / l);
+  }
+  function pnlPosition(p, sortie) {
+    const brut = p.sens === "achat" ? p.qte * (sortie - p.entree) : p.qte * (p.entree - sortie);
+    return brut - p.mise * FRAIS - p.qte * sortie * FRAIS;
+  }
+  function bilanEnt() {
+    const fermes = S.ent.positions.filter((p) => p.statut === "ferme"), ouverts = S.ent.positions.filter((p) => p.statut === "ouvert");
+    const realise = fermes.reduce((a, p) => a + p.pnl, 0);
+    const latent = ouverts.reduce((a, p) => a + pnlPosition(p, p.dernier || p.entree), 0);
+    const engage = ouverts.reduce((a, p) => a + p.mise, 0);
+    const taux = (l) => (l.length ? Math.round(100 * l.filter((p) => p.pnl > 0).length / l.length) : null);
+    const grok = fermes.filter((p) => p.source === "grok"), moi = fermes.filter((p) => p.source !== "grok");
+    return { valeur: S.ent.capital + realise + latent, dispo: S.ent.capital + realise - engage, realise, latent, fermes, ouverts, taux: taux(fermes), tauxGrok: taux(grok), nGrok: grok.length, tauxMoi: taux(moi), nMoi: moi.length };
+  }
+  function contexteEntrainement() {
+    const b = bilanEnt();
+    return "Entraînement trading (argent virtuel, pas de vrai argent) : valeur " + usd(b.valeur) + " pour " + usd(S.ent.capital) + " au départ, " + b.ouverts.length + " position(s) ouverte(s), " + b.fermes.length + " trade(s) clos. Trading réel assisté : capital " + (S.reel && S.reel.capital ? S.reel.capital + " €" : "non renseigné") + ", risque " + (S.reel ? S.reel.risque : 1) + " % par trade.";
+  }
+
+  function renderEntrainement() {
+    const b = bilanEnt(), diff = b.valeur - S.ent.capital;
+    $("#en-valeur").textContent = usd(b.valeur);
+    $("#en-valeur").style.color = diff > 0.005 ? "var(--good)" : diff < -0.005 ? "var(--bad)" : "";
+    $("#en-sous").textContent = "Départ " + usd(S.ent.capital) + " · " + usdS(diff) + " (" + (diff >= 0 ? "+" : "−") + nf(1).format(Math.abs(100 * diff / S.ent.capital)) + " %) · disponible " + usd(Math.max(0, b.dispo));
+    $("#en-stats").replaceChildren(
+      statBox(String(b.fermes.length), "trades clos"),
+      statBox(b.tauxGrok == null ? "—" : b.tauxGrok + " %", "gagnants Grok (" + b.nGrok + ")"),
+      statBox(b.tauxMoi == null ? "—" : b.tauxMoi + " %", "gagnants toi (" + b.nMoi + ")"));
+    const sel = $("#en-actif");
+    if (!sel.options.length) remplir(sel, CRYPTOS.map(([k, n]) => [k, n + " (" + k + ")"]));
+    sel.value = S.ent.actif;
+    if (document.activeElement !== $("#en-mise")) $("#en-mise").value = String(S.ent.mise).replace(".", ",");
+    setSeg("#en-m-buy", "#en-m-sell", S.entSens === "achat");
+    $("#en-go").disabled = !!entCtl;
+    $("#en-maj").disabled = entMajEnCours || !b.ouverts.length;
+
+    const ul = $("#en-ouverts"); ul.replaceChildren();
+    if (!b.ouverts.length) ul.append(h("li", { class: "empty", text: "Aucune position. Demande une idée à Grok ou ouvre un trade à la main." }));
+    for (const p of b.ouverts.slice().reverse()) {
+      const lat = pnlPosition(p, p.dernier || p.entree);
+      ul.append(h("li", { class: "item col p-trading" },
+        h("div", { class: "top" },
+          h("div", { class: "item-main" },
+            h("div", { class: "item-title", text: (p.sens === "achat" ? "Achat " : "Vente ") + p.actif + " · " + usd(p.mise) }),
+            h("div", { class: "meta" }, h("span", { class: "tag", text: p.source === "grok" ? "Grok" : "Toi" }), h("span", { text: "Entrée " + prix(p.entree) }), h("span", { text: "Actuel " + prix(p.dernier || p.entree) }))),
+          h("span", { class: "amount " + (lat < 0 ? "neg" : "pos"), text: usdS(lat) })),
+        h("div", { class: "small muted", text: "Stop " + prix(p.stop) + " · Objectif " + prix(p.objectif) }),
+        h("div", { class: "actions" }, h("button", { class: "btn soft sm", type: "button", text: "Fermer au prix actuel", onclick: () => fermerManuel(p) }))));
+    }
+    const hl = $("#en-histo"); hl.replaceChildren();
+    const fermes = b.fermes.slice().sort((x, y) => (y.fermeLe || 0) - (x.fermeLe || 0)).slice(0, 30);
+    if (!fermes.length) hl.append(h("li", { class: "empty", text: "Les trades fermés apparaîtront ici, avec leur résultat." }));
+    const motifs = { stop: "Stop touché", objectif: "Objectif atteint", manuel: "Fermé à la main" };
+    for (const p of fermes) {
+      hl.append(h("li", { class: "item p-" + (p.pnl >= 0 ? "freelance" : "boutique") },
+        h("div", { class: "item-main" },
+          h("div", { class: "item-title", text: (p.sens === "achat" ? "Achat " : "Vente ") + p.actif + " · " + (p.source === "grok" ? "Grok" : "Toi") }),
+          h("div", { class: "meta" }, h("span", { text: motifs[p.motif] || "" }), h("span", { text: prix(p.entree) + " → " + prix(p.sortie) }))),
+        h("span", { class: "amount " + (p.pnl < 0 ? "neg" : "pos"), text: usdS(p.pnl) })));
+    }
+    renderReel();
+    $("#en-maj-info").textContent = entDernMaj ? "Prix mis à jour à " + new Date(entDernMaj).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" }) + "." : "";
+  }
+
+  function ouvrirPosition(o) {
+    const b = bilanEnt(), mise = Math.min(o.mise || S.ent.mise, b.dispo);
+    if (!(mise >= 1)) { toast("Plus assez d'argent virtuel disponible. Ferme une position ou recommence à zéro."); return false; }
+    S.ent.positions.push({ id: uid(), actif: o.actif, sens: o.sens, entree: o.prix, dernier: o.prix, qte: mise / o.prix, mise, stop: o.stop, objectif: o.objectif, source: o.source, agents: !!o.agents, raisons: o.raisons || [], ouvertLe: Date.now(), statut: "ouvert" });
+    save("ent", "entrainement"); renderEntrainement(); renderChat();
+    toast("Position virtuelle ouverte : " + (o.sens === "achat" ? "achat " : "vente ") + o.actif + ".");
+    return true;
+  }
+  function fermer(p, sortie, motif, quand) {
+    p.statut = "ferme"; p.sortie = sortie; p.dernier = sortie; p.motif = motif; p.fermeLe = quand || Date.now(); p.pnl = pnlPosition(p, sortie);
+  }
+  async function fermerManuel(p) {
+    try { const px = await prixActuel(p.actif); fermer(p, px, "manuel"); save("ent", "entrainement"); renderEntrainement(); toast("Position fermée : " + usdS(p.pnl)); }
+    catch (e) { toast("Prix indisponible. Vérifie ta connexion et réessaie."); }
+  }
+  function verifierNiveaux(p, bougies) {
+    for (const k of bougies) {
+      const t = Number(k[0]), haut = Number(k[2]), bas = Number(k[3]);
+      if (t < p.ouvertLe) continue;
+      if (p.sens === "achat") {
+        if (bas <= p.stop) return { prix: p.stop, motif: "stop", t: t };
+        if (haut >= p.objectif) return { prix: p.objectif, motif: "objectif", t: t };
+      } else {
+        if (haut >= p.stop) return { prix: p.stop, motif: "stop", t: t };
+        if (bas <= p.objectif) return { prix: p.objectif, motif: "objectif", t: t };
+      }
+    }
+    return null;
+  }
+  async function actualiserEntrainement(silencieux) {
+    const ouverts = S.ent.positions.filter((p) => p.statut === "ouvert");
+    if (!ouverts.length || entMajEnCours) return;
+    entMajEnCours = true; renderEntrainement();
+    let fermees = 0, erreur = false;
+    for (const p of ouverts) {
+      try {
+        const age = Date.now() - p.ouvertLe, jour = 86400000;
+        const iv = age < 9 * jour ? "15m" : age < 40 * jour ? "1h" : "4h";
+        const k = await binance("/api/v3/klines?symbol=" + p.actif + "USDT&interval=" + iv + "&startTime=" + Math.floor(p.ouvertLe) + "&limit=1000");
+        const touche = Array.isArray(k) ? verifierNiveaux(p, k) : null;
+        if (touche) { fermer(p, touche.prix, touche.motif, touche.t); fermees++; }
+        else p.dernier = await prixActuel(p.actif);
+      } catch (e) { erreur = true; }
+    }
+    entMajEnCours = false;
+    if (!erreur) entDernMaj = Date.now();
+    save("ent", "entrainement"); renderEntrainement();
+    if (fermees) { const n = fermees; toast(n + " position" + (n > 1 ? "s" : "") + " clôturée" + (n > 1 ? "s" : "") + " au stop ou à l'objectif."); }
+    else if (erreur && !silencieux) toast("Prix indisponibles. Vérifie ta connexion et réessaie.");
+  }
+
+  function lireJSON(t) {
+    const a = t.indexOf("{"), b = t.lastIndexOf("}");
+    if (a < 0 || b <= a) return null;
+    try { return JSON.parse(t.slice(a, b + 1)); } catch (e) { return null; }
+  }
+  function validerIdee(j, px) {
+    if (!j || typeof j !== "object") return null;
+    const d = String(j.decision || "").toLowerCase();
+    const raisons = (Array.isArray(j.raisons) ? j.raisons : []).map((r) => String(r).slice(0, 200)).slice(0, 4);
+    const conf = Math.max(1, Math.min(5, Math.round(Number(j.confiance) || 1)));
+    const risque = String(j.risque || "").slice(0, 240);
+    if (d === "attendre") return { decision: "attendre", raisons, confiance: conf, risque };
+    const stop = Number(j.stop), obj = Number(j.objectif);
+    if (!isFinite(stop) || !isFinite(obj) || stop <= 0 || obj <= 0) return null;
+    if (d === "acheter" && stop < px && px < obj) return { decision: d, sens: "achat", stop, objectif: obj, raisons, confiance: conf, risque, ratio: (obj - px) / (px - stop) };
+    if (d === "vendre" && obj < px && px < stop) return { decision: d, sens: "vente", stop, objectif: obj, raisons, confiance: conf, risque, ratio: (px - obj) / (stop - px) };
+    return null;
+  }
+  function afficherIdee(i) {
+    const box = $("#en-idee"); box.hidden = false;
+    const mise = S.ent.mise;
+    const titres = { acheter: "Acheter " + i.actif, vendre: "Vendre " + i.actif + " (pari à la baisse)", attendre: "Attendre : pas de trade clair sur " + i.actif };
+    const lignes = [h("div", { class: "dec", text: titres[i.decision] }), h("div", { class: "small muted", text: "Prix actuel " + prix(i.prix) + " · confiance " + i.confiance + "/5" })];
+    if (i.decision !== "attendre") {
+      const perte = mise * Math.abs(i.prix - i.stop) / i.prix, gain = mise * Math.abs(i.objectif - i.prix) / i.prix;
+      lignes.push(h("div", {},
+        h("div", { class: "res-line" }, h("span", { class: "muted", text: "Stop" }), h("b", { text: prix(i.stop) + " (−" + nf(2).format(perte) + " $)" })),
+        h("div", { class: "res-line" }, h("span", { class: "muted", text: "Objectif" }), h("b", { text: prix(i.objectif) + " (+" + nf(2).format(gain) + " $)" })),
+        h("div", { class: "res-line" }, h("span", { class: "muted", text: "Gain visé / perte max" }), h("b", { text: nf(1).format(i.ratio) }))));
+    }
+    if (i.raisons.length) lignes.push(h("ul", {}, i.raisons.map((r) => h("li", { text: r }))));
+    const rb = reelDepuisIdee(i); if (rb) lignes.push(rb);
+    if (i.risque) lignes.push(h("div", { class: "small", text: "Risque : " + i.risque }));
+    if (i.decision !== "attendre" && i.ratio < 1.5) lignes.push(h("div", { class: "small", style: "color:var(--bad)", text: "Attention : le gain visé est faible par rapport au risque." }));
+    const act = h("div", { class: "row" });
+    if (i.decision !== "attendre") act.append(h("button", { class: "btn grow", type: "button", text: "Prendre ce trade (virtuel)", onclick: () => { if (ouvrirPosition({ actif: i.actif, sens: i.sens, prix: i.prix, stop: i.stop, objectif: i.objectif, source: "grok", raisons: i.raisons })) { box.hidden = true; S.entIdee = null; } } }));
+    act.append(h("button", { class: "btn soft", type: "button", text: "Ignorer", onclick: () => { box.hidden = true; S.entIdee = null; } }));
+    lignes.push(act);
+    box.replaceChildren(h("div", { class: "idee" }, lignes));
+  }
+  async function ideeGrok(actif, signal, onEtape) {
+      const [t24, jours, h4] = await Promise.all([binance("/api/v3/ticker/24hr?symbol=" + actif + "USDT"), binance("/api/v3/klines?symbol=" + actif + "USDT&interval=1d&limit=60"), binance("/api/v3/klines?symbol=" + actif + "USDT&interval=4h&limit=42")]);
+      const px = Number(t24.lastPrice), cj = jours.map((k) => Number(k[4])), c4 = h4.map((k) => Number(k[4]));
+      if (!(px > 0) || cj.length < 21) throw Object.assign(new Error("prix"), { prix: true });
+      const r2p = (v) => Number(v.toPrecision(6));
+      const donnees = {
+        actif: actif + "/USDT", prix_actuel: r2p(px), variation_24h_pct: Number(Number(t24.priceChangePercent).toFixed(2)), haut_24h: r2p(Number(t24.highPrice)), bas_24h: r2p(Number(t24.lowPrice)),
+        moyenne_20j: r2p(moyenne(cj.slice(-20))), moyenne_50j: cj.length >= 50 ? r2p(moyenne(cj.slice(-50))) : null, rsi14_jour: Number((rsi(cj, 14) || 0).toFixed(1)),
+        haut_30j: r2p(Math.max(...jours.slice(-30).map((k) => Number(k[2])))), bas_30j: r2p(Math.min(...jours.slice(-30).map((k) => Number(k[3])))),
+        clotures_jour_20_derniers: cj.slice(-20).map(r2p), clotures_4h_7_jours: c4.map(r2p)
+      };
+      if (onEtape) onEtape("grok");
+      const sys = "Tu es un analyste de trading pour un portefeuille d'ENTRAÎNEMENT en argent virtuel. Personne ne peut prédire le marché : sois prudent et honnête. Tu reçois des données de marché réelles. " +
+        "Réponds UNIQUEMENT avec un objet JSON, sans texte autour : {\"decision\": \"acheter\" | \"vendre\" | \"attendre\", \"stop\": nombre, \"objectif\": nombre, \"confiance\": 1 à 5, \"raisons\": [3 raisons courtes en français], \"risque\": \"le principal risque, une phrase\"}. " +
+        "Règles : pour acheter, stop < prix actuel < objectif ; pour vendre (pari à la baisse), objectif < prix actuel < stop. Le gain visé doit valoir au moins 1,5 fois la perte maximale. Place le stop à un niveau logique (support ou résistance), pas trop serré. Horizon : quelques jours. Si le signal n'est pas clair, réponds \"attendre\" sans stop ni objectif.";
+      const r = await appelGrok([{ role: "system", content: sys }, { role: "user", content: JSON.stringify(donnees) }], null, signal, () => {});
+      return { idee: validerIdee(lireJSON(r.text), px), px, donnees };
+  }
+  async function analyserAvecGrok() {
+    if (entCtl) return;
+    if (!S.reglages.cle) { toast("Ajoute d'abord ta clé xAI."); go("plus", "reglages"); return; }
+    const actif = $("#en-actif").value; S.ent.actif = actif; save("ent", "entrainement");
+    const box = $("#en-idee"); box.hidden = false; box.replaceChildren(h("div", { class: "idee" }, h("span", { class: "muted", text: "Récupération des prix de " + actif + "…" })));
+    entCtl = new AbortController(); $("#en-stop").hidden = false; renderEntrainement();
+    try {
+      const res = await ideeGrok(actif, entCtl.signal, () => box.replaceChildren(h("div", { class: "idee" }, h("span", { class: "muted", text: "Grok analyse " + actif + "…" }))));
+      const idee = res.idee, px = res.px;
+      if (!idee) { box.replaceChildren(h("div", { class: "idee" }, h("span", { text: "Grok a donné une réponse incohérente (niveaux mal placés ou format inattendu). Réessaie : par prudence, Jarvis ne garde que les idées cohérentes." }))); }
+      else { S.entIdee = Object.assign(idee, { actif, prix: px }); afficherIdee(S.entIdee); }
+    } catch (e) {
+      if (e && e.name === "AbortError") box.hidden = true;
+      else if (e && (e.prix || !e.status)) box.replaceChildren(h("div", { class: "idee" }, h("span", { text: e.status ? messageErreur(e) : "Impossible de récupérer les prix (Binance) ou de joindre Grok. Vérifie ta connexion et réessaie." })));
+      else box.replaceChildren(h("div", { class: "idee" }, h("span", { text: messageErreur(e) })));
+    }
+    entCtl = null; $("#en-stop").hidden = true; renderEntrainement();
+  }
+  async function tradeManuel() {
+    const actif = $("#en-actif").value, stop = num($("#en-m-stop").value), obj = num($("#en-m-obj").value);
+    if (!(stop > 0) || !(obj > 0)) { toast("Indique un stop et un objectif."); return; }
+    try {
+      const px = await prixActuel(actif);
+      const okA = S.entSens === "achat" && stop < px && px < obj, okV = S.entSens === "vente" && obj < px && px < stop;
+      if (!okA && !okV) { toast(S.entSens === "achat" ? "Pour un achat : stop sous le prix actuel (" + prix(px) + "), objectif au-dessus." : "Pour une vente : stop au-dessus du prix actuel (" + prix(px) + "), objectif en dessous."); return; }
+      if (ouvrirPosition({ actif, sens: S.entSens, prix: px, stop, objectif: obj, source: "moi" })) { $("#en-m-stop").value = ""; $("#en-m-obj").value = ""; }
+    } catch (e) { toast("Prix indisponible. Vérifie ta connexion et réessaie."); }
+  }
+  $("#en-go").addEventListener("click", analyserAvecGrok);
+  $("#en-stop").addEventListener("click", () => { if (entCtl) entCtl.abort(); });
+  $("#en-maj").addEventListener("click", () => actualiserEntrainement(false));
+  $("#en-actif").addEventListener("change", (e) => { S.ent.actif = e.target.value; save("ent", "entrainement"); });
+  $("#en-mise").addEventListener("change", (e) => {
+    const v = num(e.target.value);
+    if (v >= 1) { S.ent.mise = Math.round(v * 100) / 100; save("ent", "entrainement"); } else toast("Mise d'au moins 1 $.");
+    renderEntrainement();
+  });
+  $("#en-m-buy").addEventListener("click", () => { S.entSens = "achat"; renderEntrainement(); });
+  $("#en-m-sell").addEventListener("click", () => { S.entSens = "vente"; renderEntrainement(); });
+  $("#en-m-go").addEventListener("click", tradeManuel);
+  $("#go-entrainement").addEventListener("click", () => go("plus", "entrainement"));
+  $("#go-terminal").addEventListener("click", () => go("plus", "terminal"));
+  let entResetArme = false;
+  $("#en-reset").addEventListener("click", (e) => {
+    if (!entResetArme) { entResetArme = true; e.target.textContent = "Appuie encore pour tout remettre à 1 000 $"; setTimeout(() => { entResetArme = false; e.target.textContent = "Recommencer à zéro"; }, 3500); return; }
+    entResetArme = false; e.target.textContent = "Recommencer à zéro";
+    S.ent.positions = []; S.ent.capital = 1000; S.ent.log = []; S.ent.courbe = []; S.entIdee = null; $("#en-idee").hidden = true;
+    save("ent", "entrainement"); renderEntrainement(); toast("Portefeuille virtuel remis à 1 000 $.");
+  });
+
+  /* =================== Kit freelance =================== */
+  ICONS.freelance = '<rect x="3.5" y="7.5" width="17" height="12" rx="3"/><path d="M9 7.5V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.5M3.5 12.5h17"/>';
+  const FK_PLAN = [
+    "J1 · Créer un compte Instagram « portfolio » et y poster 3 exemples",
+    "J2 · Faire 2 vidéos ou visuels d'exemple (pour un ami ou un commerce imaginaire)",
+    "J3 · Lister 20 commerces de ta ville qui postent peu sur Instagram",
+    "J4 · Envoyer le premier message à 10 commerces",
+    "J5 · Envoyer le message à 10 autres et publier ton annonce",
+    "J6 · Relancer ceux qui n'ont pas répondu",
+    "J7 · Faire la vidéo offerte à ceux qui ont dit oui, puis proposer le pack"
+  ];
+  const FK_OFFRES = [
+    { titre: "Pack 4 vidéos courtes par mois", detail: "Reels ou TikTok montés, sous-titrés, prêts à poster. À l'unité : 30 à 50 €.", prix: "120 à 200 € / mois", ligne: "Pack 4 vidéos courtes (Reels/TikTok) montées et sous-titrées", pu: 120 },
+    { titre: "Pack 10 visuels Canva", detail: "Posts Instagram, affiches ou menus aux couleurs du commerce. Logo simple : 40 à 80 €.", prix: "60 à 120 €", ligne: "Pack 10 visuels pour les réseaux sociaux", pu: 60 },
+    { titre: "Gestion des réseaux sociaux", detail: "3 publications par semaine, préparation et mise en ligne, réponses simples aux commentaires.", prix: "200 à 350 € / mois", ligne: "Gestion des réseaux sociaux : 3 publications par semaine (1 mois)", pu: 200 },
+    { titre: "Pack visibilité commerce local", detail: "Le combo : 8 visuels + 4 vidéos + publication. Ton offre la plus rentable.", prix: "300 à 450 € / mois", ligne: "Pack visibilité : 8 visuels, 4 vidéos courtes et publication (1 mois)", pu: 300 }
+  ];
+  const FK_MSGS = [
+    { titre: "1er message à un commerce (Instagram)", texte: "Bonjour [nom du commerce] ! Je m'appelle [ton prénom], j'habite à [ta ville] et je crée des vidéos courtes et des visuels pour les commerces du coin.\nJ'ai vu votre compte et j'ai une idée de Reel pour mettre en avant [un produit ou un plat]. Je peux vous en faire un offert, pour que vous voyiez le résultat. Ça vous dit ?" },
+    { titre: "Relance (3 jours après)", texte: "Bonjour, je reviens vers vous pour la vidéo offerte dont je vous parlais. Si c'est plus simple, je peux passer 10 minutes filmer sur place cette semaine. Bonne journée !" },
+    { titre: "Après la vidéo offerte", texte: "Voici la vidéo ! Si elle vous plaît, je propose un pack de 4 vidéos par mois à [prix] €, montées et prêtes à poster. Je peux aussi m'occuper de la publication. On en parle ?" },
+    { titre: "Demander une recommandation", texte: "Merci pour votre confiance ! Si vous êtes content du travail, connaîtriez-vous un autre commerçant à qui ça pourrait servir ? Un petit avis Google ou Instagram m'aiderait aussi beaucoup." },
+    { titre: "Annonce sur tes réseaux", texte: "Je lance mon activité : vidéos courtes, visuels et gestion des réseaux pour les commerces et les créateurs. Reels, TikTok, posts Instagram, logos… Prix de lancement pour les premiers clients. Écris-moi en message privé !" }
+  ];
+  function renderFreelance() {
+    const plan = $("#fk-plan");
+    if (!plan.children.length) FK_PLAN.forEach((t) => plan.append(h("li", { text: t })));
+    const of = $("#fk-offres"); of.replaceChildren();
+    for (const o of FK_OFFRES) {
+      of.append(h("li", { class: "item col p-freelance" },
+        h("div", { class: "top" }, h("div", { class: "item-main" }, h("div", { class: "item-title", text: o.titre }), h("div", { class: "small muted", text: o.detail })), h("span", { class: "amount", text: o.prix })),
+        h("div", { class: "actions" },
+          h("button", { class: "btn soft sm", type: "button", text: "Faire un devis", onclick: () => { S.typeDoc = "devis"; S.lignes = [{ d: o.ligne, q: "1", p: String(o.pu) }]; go("plus", "devis"); renderLignes(); majTotaux(); $("#d-client").focus(); } }),
+          h("button", { class: "btn soft sm", type: "button", text: "Adapter avec Jarvis", onclick: () => demanderJarvis("Je débute en freelance (montage vidéo, visuels Canva, gestion de réseaux). Aide-moi à adapter cette offre pour les commerces de ma ville : « " + o.titre + " » (" + o.prix + "). Propose un nom accrocheur, ce qui est inclus, et un prix de lancement raisonnable. Pose-moi une question si tu as besoin de savoir où j'habite.") }))));
+    }
+    const ms = $("#fk-msgs"); ms.replaceChildren();
+    for (const m of FK_MSGS) {
+      ms.append(h("li", { class: "item col p-contenu" },
+        h("div", { class: "item-title", text: m.titre }),
+        h("div", { class: "msg-txt", text: m.texte }),
+        h("div", { class: "actions" },
+          h("button", { class: "btn soft sm", type: "button", text: "Copier", onclick: () => copier(m.texte) }),
+          h("button", { class: "btn soft sm", type: "button", text: "Personnaliser avec Jarvis", onclick: () => demanderJarvis("Personnalise ce message pour moi. Garde-le court, naturel et poli, et demande-moi les infos qui manquent (mon prénom, la ville, le commerce visé) :\n\n" + m.texte) }))));
+    }
+  }
+  $("#fk-plan-go").addEventListener("click", () => {
+    const deja = new Set(S.missions.map((m) => m.titre));
+    let n = 0;
+    FK_PLAN.forEach((t) => { if (!deja.has(t)) { S.missions.push({ id: uid(), titre: t, piste: "freelance", fait: false, creeLe: new Date().toISOString() }); n++; } });
+    save("missions"); renderAll();
+    toast(n ? n + " missions ajoutées. Chaque mission faite rapporte 10 XP." : "Ton plan est déjà dans tes missions.");
+  });
+
+  /* =================== Trading réel assisté =================== */
+  const COURTIERS = [["", "Choisis ton appli"], ["kraken", "Kraken"], ["coinbase", "Coinbase"], ["bitpanda", "Bitpanda"], ["traderepublic", "Trade Republic"], ["bitvavo", "Bitvavo"], ["autre", "Autre"]];
+  const URL_COURTIERS = { kraken: "https://www.kraken.com", coinbase: "https://www.coinbase.com", bitpanda: "https://www.bitpanda.com", traderepublic: "https://traderepublic.com", bitvavo: "https://bitvavo.com" };
+  S.reel = Object.assign({ capital: 0, risque: 1, courtier: "" }, store.get("reel", {}));
+  function calcReel(capital, risquePct, entree, stop) {
+    if (!(capital > 0) || !(entree > 0) || !(stop > 0) || entree === stop) return null;
+    const ecart = Math.abs(entree - stop) / entree;
+    let perte = capital * risquePct / 100, mise = perte / ecart, plafond = false;
+    if (mise > capital) { mise = capital; perte = mise * ecart; plafond = true; }
+    return { mise, perte, ecart, plafond };
+  }
+  function renderReel() {
+    if (document.activeElement !== $("#re-capital")) $("#re-capital").value = S.reel.capital ? String(S.reel.capital).replace(".", ",") : "";
+    $("#re-risque").value = String(S.reel.risque);
+    const sel = $("#re-courtier"); if (!sel.options.length) remplir(sel, COURTIERS); sel.value = S.reel.courtier;
+    const url = URL_COURTIERS[S.reel.courtier]; const a = $("#re-ouvrir");
+    a.hidden = !url; if (url) a.href = url;
+    const box = $("#re-res"), r = calcReel(S.reel.capital, S.reel.risque, num($("#re-entree").value), num($("#re-stop").value));
+    if (!S.reel.capital) { box.replaceChildren(h("span", { class: "muted", text: "Indique ton capital réel : c'est l'argent que tu acceptes de mettre en jeu, pas tout ce que tu as." })); return; }
+    if (!r) { box.replaceChildren(h("span", { class: "muted", text: "Entre un prix d'entrée et un stop, ou demande une idée à Grok : Jarvis calcule la mise." })); return; }
+    const l = (a2, b2) => h("div", { class: "res-line" }, h("span", { class: "muted", text: a2 }), h("b", { text: b2 }));
+    box.replaceChildren(...[
+      l("Mise à placer", eur.format(r.mise)),
+      l("Perte max si le stop est touché", "−" + eur.format(r.perte) + " (" + nf(1).format(100 * r.perte / S.reel.capital) + " %)"),
+      l("Distance au stop", nf(1).format(100 * r.ecart) + " %"),
+      r.plafond ? h("div", { class: "small", text: "Stop très proche : la mise est plafonnée à ton capital." }) : null,
+      h("div", { class: "small muted", text: "Dans ton appli : achète pour " + eur.format(r.mise) + ", puis place tout de suite un ordre stop au prix indiqué. Les frais de ton appli s'ajoutent." })].filter(Boolean));
+  }
+  $("#re-capital").addEventListener("change", (e) => { const v = num(e.target.value); S.reel.capital = v > 0 ? Math.round(v * 100) / 100 : 0; save("reel"); renderReel(); });
+  $("#re-risque").addEventListener("change", (e) => { S.reel.risque = Number(e.target.value) || 1; save("reel"); renderReel(); });
+  $("#re-courtier").addEventListener("change", (e) => { S.reel.courtier = e.target.value; save("reel"); renderReel(); });
+  ["#re-entree", "#re-stop"].forEach((s) => $(s).addEventListener("input", renderReel));
+  function reelDepuisIdee(i) {
+    if (!i || i.decision === "attendre") return null;
+    $("#re-entree").value = String(Number(i.prix.toPrecision(6))).replace(".", ",");
+    $("#re-stop").value = String(Number(i.stop.toPrecision(6))).replace(".", ",");
+    renderReel();
+    const r = calcReel(S.reel.capital, S.reel.risque, i.prix, i.stop);
+    return r ? h("div", { class: "small", style: "font-weight:600", text: "En réel, avec " + eur0.format(S.reel.capital) + " et " + String(S.reel.risque).replace(".", ",") + " % de risque : mise " + eur.format(r.mise) + ", perte max " + eur.format(r.perte) + ". Détails dans « Trading réel assisté »." }) : null;
+  }
+
+  /* =================== L'équipe : 3 assistants spécialisés =================== */
+  const AGENTS = {
+    ada: { nom: "Ada", role: "Bras droit", c: "accent", couleur: "255 176 32", intro: "Ton briefing du jour : ce qui compte, dans l'ordre." },
+    max: { nom: "Max", role: "Finance", c: "freelance", couleur: "20 184 166", intro: "Tes factures, ton argent du mois et tes commandes." },
+    leo: { nom: "Léo", role: "Clients et croissance", c: "contenu", couleur: "139 92 246", intro: "Tes prospects, ton plan freelance et ton contenu." }
+  };
+  S.agent = "ada";
+  function echeance(d) { return addJours(d.date || todayStr(), 30); }
+  function etatFactures() {
+    const t = todayStr(), f = S.docs.filter((d) => d.type === "facture");
+    const aPayer = f.filter((d) => d.statut === "a_payer"), retard = aPayer.filter((d) => echeance(d) < t);
+    const k = monthKey(), payees = f.filter((d) => d.statut === "paye" && String(d.payeLe || d.date || "").startsWith(k));
+    const tot = (l) => l.reduce((a, d) => a + totaux(d.lignes, d.tva).ttc, 0);
+    return { aPayer, retard, payees, totAPayer: tot(aPayer), totRetard: tot(retard), totPayees: tot(payees) };
+  }
+  function badgesAgents() {
+    const t = todayStr();
+    const rel = S.prospects.filter((p) => p.relance && p.relance <= t && p.statut !== "signe" && p.statut !== "perdu").length;
+    const posts = S.posts.filter((p) => p.date === t && p.statut !== "publie").length;
+    const f = etatFactures();
+    const aContacter = S.prospects.filter((p) => p.statut === "a_contacter").length;
+    return { ada: rel + posts, max: f.retard.length, leo: aContacter };
+  }
+  function avatar(id, taille) { const a = AGENTS[id]; return h("span", { class: "avatar", style: "--ac:" + a.couleur + ";--as:" + (taille || 44) + "px", "aria-hidden": "true", text: a.nom[0] }); }
+  function carteEquipe() {
+    const b = badgesAgents();
+    return h("div", { class: "team" },
+      h("div", { class: "sec", text: "Ton équipe" }),
+      h("div", { class: "team-row" }, Object.keys(AGENTS).map((id) => {
+        const a = AGENTS[id];
+        return h("button", { class: "agent", type: "button", "aria-label": a.nom + ", " + a.role + (b[id] ? ", " + b[id] + " à traiter" : ""), onclick: () => { S.agent = id; go("plus", "agent"); } },
+          avatar(id), b[id] ? h("i", { class: "badge", text: String(b[id]) }) : null, h("b", { text: a.nom }), h("span", { text: a.role }));
+      })));
+  }
+  function bloc(titre, ...enfants) { return h("div", { class: "card" }, h("div", { class: "sec", text: titre }), ...enfants.filter(Boolean)); }
+  function ligneAg(txt, sous, bouton) { return h("div", { class: "ag-line" }, h("div", {}, h("div", { text: txt }), sous ? h("div", { class: "small muted", text: sous }) : null), bouton || null); }
+  const petitBtn = (txt, fn) => h("button", { class: "btn soft sm", type: "button", text: txt, onclick: fn });
+  function mailRelance(d) {
+    const t = totaux(d.lignes, d.tva).ttc, e = S.entreprise;
+    const sujet = "Relance : facture " + d.numero;
+    const corps = "Bonjour,\n\nSauf erreur de ma part, la facture " + d.numero + " du " + fmtDate(d.date, true) + ", d'un montant de " + eur.format(t) + ", n'a pas encore été réglée (échéance le " + fmtDate(echeance(d), true) + ").\n\nPourriez-vous me dire quand le paiement est prévu ?" + (e.iban ? "\nPour rappel, IBAN : " + e.iban : "") + "\n\nMerci d'avance et bonne journée,\n" + (e.nom || S.reglages.prenom || "");
+    return { sujet, corps };
+  }
+  function renderAgent() {
+    const id = AGENTS[S.agent] ? S.agent : "ada", a = AGENTS[id], t = todayStr();
+    $("#ag-head").replaceChildren(avatar(id, 64), h("div", {}, h("h1", { class: "title", style: "margin:0", text: a.nom }), h("div", { class: "muted", text: a.role })));
+    const corps = [h("div", { class: "note", text: salut() + " " + a.intro })];
+    if (id === "ada") {
+      const ouvertes = S.missions.filter((m) => !m.fait);
+      const rel = S.prospects.filter((p) => p.relance && p.relance <= t && p.statut !== "signe" && p.statut !== "perdu");
+      const posts = S.posts.filter((p) => p.date === t && p.statut !== "publie");
+      const foc = S.focus.filter((f) => f.date === t);
+      corps.push(bloc("Priorités du jour (" + ouvertes.length + ")",
+        ...(ouvertes.length ? ouvertes.slice(0, 5).map((m) => ligneAg(m.titre, PISTES[m.piste || "autre"], petitBtn("Fait", () => { basculer(m.id); renderAgent(); }))) : [h("div", { class: "muted", text: "Aucune mission ouverte. Ajoute-en une ou demande-moi un plan." })]),
+        ouvertes.length > 5 ? petitBtn("Voir les " + ouvertes.length + " missions", () => go("missions")) : null));
+      corps.push(bloc("À relancer aujourd'hui (" + rel.length + ")",
+        ...(rel.length ? rel.slice(0, 5).map((p) => ligneAg(p.nom, (STATUTS_PR.find((x) => x[0] === p.statut) || ["", ""])[1], petitBtn("Écrire", () => demanderJarvis("Écris un message de relance court et naturel pour mon prospect « " + p.nom + " »" + (p.note ? " (note : " + p.note + ")" : "") + ".")))) : [h("div", { class: "muted", text: "Personne à relancer aujourd'hui." })])));
+      corps.push(bloc("Contenu et concentration",
+        ligneAg(posts.length ? posts.length + " publication(s) prévue(s) aujourd'hui" : "Aucune publication prévue aujourd'hui", posts.map((p) => p.reseau + " : " + p.idee).join(" · ") || null, petitBtn("Contenu", () => go("plus", "contenu"))),
+        ligneAg(foc.length ? foc.length + " session(s) de focus aujourd'hui" : "Pas encore de session de focus", "25 minutes sans distraction = +15 XP", petitBtn("Focus", () => go("plus", "focus")))));
+    } else if (id === "max") {
+      const f = etatFactures(), b = bilanMois(), obj = Number(S.reglages.objectif) || 0;
+      corps.push(h("div", { class: "stats" }, statBox(String(f.payees.length), "payées ce mois"), statBox(String(f.aPayer.length), "à payer"), statBox(String(f.retard.length), "en retard")));
+      corps.push(bloc("Factures en retard" + (f.retard.length ? " · " + eur.format(f.totRetard) : ""),
+        ...(f.retard.length ? f.retard.map((d) => {
+          const m = mailRelance(d);
+          return h("div", { class: "ag-line" }, h("div", {}, h("div", { text: d.numero + " · " + d.client }), h("div", { class: "small muted", text: eur.format(totaux(d.lignes, d.tva).ttc) + " · échéance " + fmtDate(echeance(d)) })),
+            h("div", { class: "row", style: "gap:6px" },
+              h("a", { class: "btn soft sm", href: "mailto:?subject=" + encodeURIComponent(m.sujet) + "&body=" + encodeURIComponent(m.corps), style: "display:grid;place-items:center;text-decoration:none", text: "E-mail" }),
+              petitBtn("Copier", () => copier(m.corps))));
+        }) : [h("div", { class: "muted", text: f.aPayer.length ? "Rien en retard. " + f.aPayer.length + " facture(s) à payer dans les délais (" + eur.format(f.totAPayer) + ")." : "Aucune facture en attente." })])));
+      const nonComptees = S.commandes.filter((c) => !c.compte && c.statut !== "a_commander" && c.statut !== "retourne");
+      corps.push(bloc("Ton argent ce mois",
+        ligneAg("Net du mois : " + eur.format(b.net), "Entrées " + eur.format(b.e) + " · sorties " + eur.format(b.s) + (obj > 0 ? " · objectif " + Math.round(100 * b.net / obj) + " %" : ""), petitBtn("Argent", () => go("argent"))),
+        nonComptees.length ? ligneAg(nonComptees.length + " commande(s) pas encore comptée(s)", "Pense à les compter pour un bilan juste", petitBtn("Commandes", () => go("plus", "commandes"))) : null,
+        ligneAg("Entraînement trading : " + usd(bilanEnt().valeur), "Argent virtuel, départ " + usd(S.ent.capital), petitBtn("Voir", () => go("plus", "entrainement")))));
+    } else {
+      const comptes = STATUTS_PR.map(([k, l]) => [l, S.prospects.filter((p) => p.statut === k).length]).filter((x) => x[1]);
+      const plan = S.missions.filter((m) => FK_PLAN.includes(m.titre)), faits = plan.filter((m) => m.fait).length;
+      const prochaine = plan.find((m) => !m.fait);
+      const semaine = S.posts.filter((p) => p.date >= t && p.date <= addJours(t, 6) && p.statut !== "publie");
+      corps.push(bloc("Tes prospects",
+        h("div", { class: "muted", text: comptes.length ? comptes.map(([l, n]) => l + " : " + n).join(" · ") : "Aucun prospect pour l'instant. Objectif : 20 commerces listés cette semaine." }),
+        h("div", { class: "row", style: "gap:6px;flex-wrap:wrap" }, petitBtn("Prospects", () => go("plus", "prospects")), petitBtn("Écrire un premier message", () => demanderJarvis("Écris un premier message court pour proposer mes services (montage vidéo, visuels Canva, gestion de réseaux) à un commerce de ma ville. Demande-moi le type de commerce si besoin.")))));
+      corps.push(bloc("Plan freelance de 7 jours",
+        plan.length ? ligneAg(faits + " étape(s) sur " + FK_PLAN.length + " faites", prochaine ? "Prochaine : " + prochaine.titre : "Plan terminé, bravo !", prochaine ? petitBtn("Fait", () => { basculer(prochaine.id); renderAgent(); }) : null)
+          : ligneAg("Plan pas encore lancé", "7 étapes pour trouver tes premiers clients", petitBtn("Lancer", () => { $("#fk-plan-go").click(); renderAgent(); }))));
+      corps.push(bloc("Contenu de la semaine",
+        ligneAg(semaine.length ? semaine.length + " publication(s) prévue(s) sur 7 jours" : "Rien de prévu cette semaine", "Publier régulièrement attire des clients", petitBtn("Idées", () => demanderJarvis("Propose-moi 5 idées de publications pour montrer mon travail de montage vidéo et de visuels Canva, avec une accroche pour chacune. Si je te dis de les garder, planifie-les.")))));
+    }
+    corps.push(h("button", { class: "btn", type: "button", text: "Parler à " + a.nom, onclick: () => demanderJarvis("Tu es " + a.nom + ", mon assistant « " + a.role + " ». Fais-moi un point rapide sur ton domaine à partir de mes données, et dis-moi la première chose à faire aujourd'hui.") }));
+    $("#ag-body").replaceChildren(...corps);
+  }
+
+  /* =================== Terminal agents (argent virtuel) =================== */
+  ICONS.terminal = '<rect x="3.5" y="4.5" width="17" height="15" rx="3"/><path d="M7.5 9.5l3 2.5-3 2.5M12.5 15h4"/>';
+  const TM_AGENTS = [
+    ["scanner", "Scanner", "Repère les cryptos qui bougent : pic de volume, cassure, chute.", "Ne trade jamais, il signale."],
+    ["filtre", "Filtre de sécurité", "Écarte ce qui est trop risqué : trop volatil, déjà en position, limites atteintes.", "Rien ne passe sans son feu vert."],
+    ["analyste", "Analyste Grok", "Étudie le meilleur candidat et propose stop et objectif, ou dit d'attendre.", "Un seul appel à Grok par cycle."],
+    ["sizer", "Sizer", "Calcule la mise pour ne risquer que 1 % du portefeuille.", "Jamais de mise fixe."],
+    ["executeur", "Exécuteur", "Ouvre et ferme les positions virtuelles au stop ou à l'objectif.", "Frais de 0,1 % compris."],
+    ["journal", "Journal", "Écrit chaque décision avec sa raison.", "Pas de trade sans raison."]
+  ];
+  if (!Array.isArray(S.ent.log)) S.ent.log = [];
+  if (!Array.isArray(S.ent.courbe)) S.ent.courbe = [];
+  S.tm = { etat: {}, etape: 0, enCours: false, minuteur: 0, dernier: Number(S.ent.dernierCycle) || 0 };
+  function tmLog(ag, type, txt, raison) {
+    S.ent.log.unshift({ t: Date.now(), ag, type, txt, raison: raison || "" });
+    if (S.ent.log.length > 150) S.ent.log.length = 150;
+  }
+  function tmEtat(id, badge, ligne) { S.tm.etat[id] = { badge, ligne }; renderTerminal(); }
+  function pointCourbe() {
+    const v = bilanEnt().valeur, c = S.ent.courbe, last = c[c.length - 1];
+    if (!last || Math.abs(last.v - v) > 0.004 || Date.now() - last.t > 3600e3) c.push({ t: Date.now(), v: Math.round(v * 100) / 100 });
+    if (c.length > 200) c.splice(0, c.length - 200);
+  }
+  function svgCourbe() {
+    const pts = [{ v: S.ent.capital }].concat(S.ent.courbe);
+    if (pts.length < 2) return h("div", { class: "small muted", text: "La courbe du portefeuille apparaîtra après les premiers cycles." });
+    const W = 320, H = 70, vs = pts.map((p) => p.v), mn = Math.min(...vs), mx = Math.max(...vs), r = mx - mn || 1;
+    const xy = pts.map((p, i) => [(i / (pts.length - 1)) * W, H - 6 - ((p.v - mn) / r) * (H - 12)]);
+    const up = vs[vs.length - 1] >= S.ent.capital;
+    const d = xy.map((q, i) => (i ? "L" : "M") + q[0].toFixed(1) + " " + q[1].toFixed(1)).join(" ");
+    const box = h("div", { class: "tm-courbe" });
+    box.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Courbe du portefeuille virtuel : de ' + Math.round(vs[0]) + " à " + Math.round(vs[vs.length - 1]) + ' dollars"><path d="' + d + '" fill="none" stroke="var(--' + (up ? "good" : "bad") + ')" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    return box;
+  }
+  function renderTerminal() {
+    const v = $("#v-terminal"); if (!v || v.hidden) return;
+    const b = bilanEnt(), mult = b.valeur / S.ent.capital;
+    $("#tm-valeur").textContent = usd(b.valeur);
+    $("#tm-mult").textContent = nf(2).format(mult) + "×";
+    $("#tm-mult").style.color = mult > 1.0001 ? "var(--good)" : mult < 0.9999 ? "var(--bad)" : "";
+    $("#tm-etape").textContent = S.tm.etape + "/6";
+    $("#tm-statut").textContent = S.tm.enCours ? "Cycle en cours…" : (S.ent.auto ? "Auto actif · " : "En veille · ") + (S.tm.dernier ? "dernier cycle à " + new Date(S.tm.dernier).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" }) : "aucun cycle encore") + " · " + b.ouverts.length + " position(s) ouverte(s)";
+    $("#tm-statut").classList.toggle("on", S.tm.enCours || !!S.ent.auto);
+    $("#tm-courbe").replaceChildren(svgCourbe());
+    $("#tm-go").disabled = S.tm.enCours;
+    $("#tm-auto").setAttribute("aria-pressed", String(!!S.ent.auto)); $("#tm-auto").textContent = "Auto : " + (S.ent.auto ? "on" : "off");
+    $("#tm-agents").replaceChildren(...TM_AGENTS.map(([id, nom, role, regle]) => {
+      const e = S.tm.etat[id] || { badge: "repos", ligne: "" };
+      return h("li", { class: "item col tm-ag" + (e.badge === "actif" ? " live" : "") },
+        h("div", { class: "top" }, h("div", { class: "item-main" }, h("div", { class: "item-title", text: nom }), h("div", { class: "small muted", text: role })), h("span", { class: "tm-badge b-" + e.badge, text: e.badge })),
+        h("div", { class: "small", style: "font-weight:600", text: regle }),
+        e.ligne ? h("div", { class: "small mono", text: e.ligne }) : null);
+    }));
+    const lg = $("#tm-log"); lg.replaceChildren();
+    if (!S.ent.log.length) lg.append(h("li", { class: "empty", text: "Le journal est vide. Lance un premier cycle." }));
+    for (const l of S.ent.log.slice(0, 40)) {
+      lg.append(h("li", { class: "tm-l" },
+        h("span", { class: "tm-badge b-" + l.type.toLowerCase(), text: l.type }),
+        h("div", {}, h("div", { class: "mono", text: new Date(l.t).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" }) + " · " + l.txt }), l.raison ? h("div", { class: "small muted", text: "raison : " + l.raison }) : null)));
+    }
+  }
+  async function cycleAgents() {
+    if (S.tm.enCours) return;
+    if (!S.reglages.cle) { toast("Ajoute d'abord ta clé xAI."); go("plus", "reglages"); return; }
+    S.tm.enCours = true; S.tm.etat = {}; S.tm.etape = 0; renderTerminal();
+    const fin = (msg) => { if (msg) tmLog("journal", "INFO", msg); S.tm.enCours = false; S.tm.dernier = Date.now(); S.ent.dernierCycle = S.tm.dernier; pointCourbe(); save("ent", "entrainement"); renderTerminal(); renderEntrainement(); };
+    try {
+      // 0. Exécuteur : vérifier les positions ouvertes
+      tmEtat("executeur", "actif", "vérifie les positions ouvertes");
+      const avant = new Set(S.ent.positions.filter((p) => p.statut === "ouvert").map((p) => p.id));
+      await actualiserEntrainement(true);
+      for (const p of S.ent.positions.filter((x) => avant.has(x.id) && x.statut === "ferme")) tmLog("executeur", "EXIT", (p.sens === "achat" ? "LONG " : "SHORT ") + p.actif + " " + usdS(p.pnl), p.motif === "stop" ? "stop touché" : p.motif === "objectif" ? "objectif atteint" : "fermé");
+      tmEtat("executeur", "repos", "");
+      // 1. Scanner
+      S.tm.etape = 1; tmEtat("scanner", "actif", "scanne " + CRYPTOS.length + " cryptos");
+      const liste = await Promise.all(CRYPTOS.map(async ([a]) => {
+        try {
+          const k = await binance("/api/v3/klines?symbol=" + a + "USDT&interval=1d&limit=21");
+          if (!Array.isArray(k) || k.length < 21) return null;
+          const auj = k[k.length - 1], prec = k.slice(0, -1);
+          const volMoy = moyenne(prec.map((x) => Number(x[7]))), volRatio = Number(auj[7]) / (volMoy || 1);
+          const ouv = Number(auj[1]), px = Number(auj[4]), chg = 100 * (px - ouv) / ouv;
+          const haut = Math.max(...prec.map((x) => Number(x[2]))), bas = Math.min(...prec.map((x) => Number(x[3])));
+          const amp = 100 * (Number(auj[2]) - Number(auj[3])) / ouv;
+          const sig = [];
+          if (volRatio >= 1.5) sig.push("pic de volume ×" + nf(1).format(volRatio));
+          if (px > haut) sig.push("cassure du plus haut 20 j");
+          if (px < bas) sig.push("chute sous le plus bas 20 j");
+          if (Math.abs(chg) >= 4) sig.push((chg > 0 ? "+" : "") + nf(1).format(chg) + " % aujourd'hui");
+          return { a, px, chg, volRatio, amp, sig, score: volRatio + Math.abs(chg) / 4 + (px > haut || px < bas ? 1 : 0) };
+        } catch (e) { return null; }
+      }));
+      const vus = liste.filter(Boolean);
+      if (!vus.length) { tmEtat("scanner", "stop", "prix indisponibles"); return fin("Prix indisponibles : cycle annulé."); }
+      const candidats = vus.filter((x) => x.sig.length).sort((x, y) => y.score - x.score);
+      tmLog("scanner", "SCAN", vus.length + " cryptos scannées, " + candidats.length + " signal(s)", candidats.slice(0, 3).map((c) => c.a + " : " + c.sig.join(", ")).join(" · ") || "marché calme");
+      tmEtat("scanner", "ok", candidats.length ? candidats.slice(0, 3).map((c) => c.a).join(", ") : "rien de notable");
+      if (!candidats.length) return fin("Rien d'intéressant : on attend le prochain cycle.");
+      // 2. Filtre
+      S.tm.etape = 2; tmEtat("filtre", "actif", "contrôle les candidats");
+      const b = bilanEnt(), t = todayStr();
+      const perteJour = b.fermes.filter((p) => p.fermeLe && dateStr(new Date(p.fermeLe)) === t).reduce((x, p) => x + p.pnl, 0);
+      if (b.ouverts.length >= 3) { tmEtat("filtre", "stop", "3 positions déjà ouvertes"); tmLog("filtre", "REJET", "aucun nouveau trade", "maximum de 3 positions ouvertes"); return fin(); }
+      if (perteJour <= -0.03 * S.ent.capital) { tmEtat("filtre", "stop", "limite de perte du jour"); tmLog("filtre", "REJET", "pause jusqu'à demain", "perte du jour au-delà de 3 % du capital"); return fin(); }
+      let choisi = null;
+      for (const c of candidats) {
+        if (b.ouverts.some((p) => p.actif === c.a)) { tmLog("filtre", "REJET", c.a, "déjà une position ouverte dessus"); continue; }
+        if (c.amp > 25) { tmLog("filtre", "REJET", c.a, "trop volatil (amplitude " + nf(0).format(c.amp) + " % aujourd'hui)"); continue; }
+        choisi = c; break;
+      }
+      if (!choisi) { tmEtat("filtre", "stop", "aucun candidat valable"); return fin(); }
+      tmLog("filtre", "PASS", choisi.a, choisi.sig.join(", ")); tmEtat("filtre", "ok", "PASS " + choisi.a);
+      // 3. Analyste Grok
+      S.tm.etape = 3; tmEtat("analyste", "actif", "Grok analyse " + choisi.a);
+      const res = await ideeGrok(choisi.a, undefined, () => {});
+      const i = res.idee;
+      if (!i) { tmEtat("analyste", "stop", "réponse incohérente"); tmLog("analyste", "REJET", choisi.a, "réponse de Grok incohérente, ignorée par prudence"); return fin(); }
+      if (i.decision === "attendre") { tmEtat("analyste", "ok", "attendre"); tmLog("analyste", "ATTENDRE", choisi.a, i.raisons.join(" · ") || "signal pas clair"); return fin(); }
+      tmEtat("analyste", "ok", (i.sens === "achat" ? "LONG " : "SHORT ") + choisi.a + " · confiance " + i.confiance + "/5");
+      if (i.ratio < 1.5) { tmLog("analyste", "REJET", choisi.a, "gain visé trop faible par rapport au risque"); return fin(); }
+      // 4. Sizer
+      S.tm.etape = 4; tmEtat("sizer", "actif", "calcule la mise");
+      const b2 = bilanEnt(), ecart = Math.abs(res.px - i.stop) / res.px;
+      const mise = Math.max(0, Math.min(b2.valeur * 0.01 / ecart, b2.valeur * 0.25, b2.dispo));
+      if (mise < 1) { tmEtat("sizer", "stop", "plus d'argent disponible"); tmLog("sizer", "REJET", choisi.a, "argent virtuel disponible insuffisant"); return fin(); }
+      tmLog("sizer", "SIZE", choisi.a + " · mise " + usd(mise), "1 % de risque, stop à " + nf(1).format(100 * ecart) + " %"); tmEtat("sizer", "ok", usd(mise));
+      // 5. Exécuteur
+      S.tm.etape = 5; tmEtat("executeur", "actif", "ouvre la position");
+      ouvrirPosition({ actif: choisi.a, sens: i.sens, prix: res.px, stop: i.stop, objectif: i.objectif, source: "grok", agents: true, raisons: i.raisons, mise });
+      tmLog("executeur", "ENTER", (i.sens === "achat" ? "LONG " : "SHORT ") + choisi.a + " à " + prix(res.px) + " · stop " + prix(i.stop) + " · objectif " + prix(i.objectif), i.raisons.join(" · "));
+      tmEtat("executeur", "ok", "LIVE " + choisi.a);
+      // 6. Journal
+      S.tm.etape = 6; tmEtat("journal", "ok", "décision enregistrée");
+      fin();
+    } catch (e) {
+      tmLog("journal", "ERREUR", "cycle interrompu", e && e.status ? messageErreur(e) : "connexion aux prix ou à Grok impossible");
+      fin();
+    }
+  }
+  function planifierAuto() {
+    clearInterval(S.tm.minuteur); S.tm.minuteur = 0;
+    if (!S.ent.auto) return;
+    S.tm.minuteur = setInterval(() => { if (!document.hidden && Date.now() - S.tm.dernier >= 30 * 60e3) cycleAgents(); }, 60e3);
+  }
+  $("#tm-go").addEventListener("click", cycleAgents);
+  $("#tm-auto").addEventListener("click", () => {
+    S.ent.auto = !S.ent.auto; save("ent", "entrainement"); planifierAuto(); renderTerminal();
+    toast(S.ent.auto ? "Auto activé : un cycle toutes les 30 minutes tant que Jarvis est ouvert." : "Auto désactivé.");
+    if (S.ent.auto && Date.now() - S.tm.dernier >= 30 * 60e3) cycleAgents();
+  });
+  document.addEventListener("visibilitychange", () => { if (!document.hidden && S.ent.auto && Date.now() - S.tm.dernier >= 30 * 60e3 && S.reglages.cle) cycleAgents(); });
+  planifierAuto();
 
   /* =================== Démarrage =================== */
   function renderAll() { renderHeader(); renderChat(); renderMissions(); renderArgent(); updateComposer(); }
